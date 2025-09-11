@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quick Notes - Ad Supported</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -299,7 +300,6 @@
             }
         }
     </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <div class="container">
@@ -308,9 +308,13 @@
             <p class="subtitle">Your thoughts, saved locally - Ad Supported</p>
         </header>
         
+        <!-- AdMob Banner Ad Placeholder (Top) -->
         <div class="ad-container">
             <div class="ad-placeholder">
-                <i class="fas fa-ad"></i> AdMob Banner Ad Placeholder
+                <i class="fas fa-ad"></i> 
+                <!-- REPLACE WITH ADMOB BANNER AD CODE -->
+                <!-- AdMob Ad Unit: ca-app-pub-xxxxxxxxxxxxxxxx/yyyyyyyyyy -->
+                <span>ca-app-pub-9985475935024651/9210244093</span>
             </div>
         </div>
         
@@ -337,10 +341,24 @@
             </div>
         </div>
         
+        <!-- AdMob Banner Ad Placeholder (Bottom) -->
         <div class="ad-container">
             <div class="ad-placeholder">
-                <i class="fas fa-ad"></i> AdMob Banner Ad Placeholder
+                <i class="fas fa-ad"></i> 
+                <!-- REPLACE WITH ADMOB BANNER AD CODE -->
+                <!-- AdMob Ad Unit: ca-app-pub-xxxxxxxxxxxxxxxx/yyyyyyyyyy -->
+                <span>ca-app-pub-9985475935024651/9210244093</span>
             </div>
+        </div>
+        
+        <!-- AdMob Interstitial Ad Trigger -->
+        <div style="text-align: center; padding: 10px; background: #f8f9fa;">
+            <button id="show-interstitial" style="background: #ff5722; color: white;">
+                <i class="fas fa-ad"></i> Show Full Screen Ad
+            </button>
+            <p style="font-size: 12px; margin-top: 5px; color: #6c757d;">
+                (Interstitial Ad Trigger - Replace with actual AdMob code)
+            </p>
         </div>
         
         <footer>
@@ -354,6 +372,7 @@
             const saveBtn = document.getElementById('save-btn');
             const clearBtn = document.getElementById('clear-btn');
             const notesContainer = document.getElementById('notes-container');
+            const interstitialBtn = document.getElementById('show-interstitial');
             
             let currentEditId = null;
             let notes = JSON.parse(localStorage.getItem('quickNotes')) || [];
@@ -399,6 +418,17 @@
                 currentEditId = null;
                 saveBtn.innerHTML = '<i class="fas fa-save"></i> Save Note';
                 noteInput.focus();
+            });
+            
+            // Interstitial ad button (for demonstration)
+            interstitialBtn.addEventListener('click', function() {
+                alert("This would show an interstitial ad in the actual app. Replace with AdMob interstitial code.");
+                
+                // In a real app, you would show the interstitial ad here
+                // For example: 
+                // if (interstitialAd) {
+                //     interstitialAd.show();
+                // }
             });
             
             // Display all notes
